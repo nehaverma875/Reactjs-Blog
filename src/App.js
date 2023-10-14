@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import Blogs from "./components/Blogs";
+import Pagination from "./components/Pagination";
+import { useContext, useEffect } from "react";
+import { AppContext } from "./context/AppContext";
+import "./App.css"
 
-function App() {
+
+export default function App() {
+
+  const{darkMode,setDarkMode} = useContext(AppContext)
+
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`h-full w-full relative ${darkMode ? 'bg-black text-white':'bg-white text-black'}`}>
+     
+      <Header />
+      <Blogs />
+      <Pagination />
     </div>
   );
-}
 
-export default App;
+}
